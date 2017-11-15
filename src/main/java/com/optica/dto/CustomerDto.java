@@ -4,16 +4,14 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.hibernate.validator.constraints.Email;
 
 public class CustomerDto {
 
-//	@NotNull
+	@Email
 	private String name;
 	
-//	@NotNull
+	@NotNull
 	@Max(value = 18)
 	@Min(15)
 	private Integer age;

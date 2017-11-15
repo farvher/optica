@@ -15,7 +15,7 @@ import com.optica.dto.CustomerDto;
 
 @Controller
 public class CustomerController {
-	
+
 	Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
 	private static final String VIEW_CUSTOMER = "customer";
@@ -23,17 +23,16 @@ public class CustomerController {
 	private static final String CUSTOMER = "customer";
 
 	@GetMapping("/customer")
-	public String index(CustomerDto customerDto,Model model) {
-		model.addAttribute("customer", customerDto);
+	public String index(CustomerDto customerDto, Model model) {
 		return VIEW_CUSTOMER;
 	}
 
 	@PostMapping("/customer/add")
-	public String addCustomer(@Valid CustomerDto customerDto,BindingResult errors, Model model) {
-		
-		if(errors.hasErrors()){
+	public String addCustomer(@Valid CustomerDto customerDto, BindingResult errors, Model model) {
+
+		if (errors.hasErrors()) {
 			logger.error(errors.getAllErrors().toString());
-			
+
 		}
 		return VIEW_CUSTOMER;
 	}
