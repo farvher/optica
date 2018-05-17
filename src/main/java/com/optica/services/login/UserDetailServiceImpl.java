@@ -36,7 +36,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 			return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPass(),
 					grantedAuthorities);
 		}
-		return new org.springframework.security.core.userdetails.User("Anonymous","Anonymous",Arrays.asList(new SimpleGrantedAuthority("ROLE_ANONYMOUS")));
+		return new org.springframework.security.core.userdetails.User("Anonymous","Anonymous",Arrays.asList(new SimpleGrantedAuthority("ANONYMOUS")));
 	}
 
 }

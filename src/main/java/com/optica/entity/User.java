@@ -21,16 +21,6 @@ public class User {
 
 	private String userName;
 	
-//	private String email;
-	
-//	private Boolean active;
-//	
-//	private Boolean isRecruiter;
-//	
-//	private Long CurriculumId;
-//	
-//	private Long CompanyId;
-
 	public String getUserName() {
 		return userName;
 	}

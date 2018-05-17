@@ -37,6 +37,13 @@
 			</form>
 		</div>
 
+<ul>
+<li th:each="user : ${users}" th:text="${user.userName}"></li>
+</ul>
+
+<ul>
+<li th:each="rol : ${roles}" th:text="${rol.name}"></li>
+</ul>
 
 	</div>
 	<!-- /container -->

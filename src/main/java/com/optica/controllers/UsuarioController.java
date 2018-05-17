@@ -1,5 +1,7 @@
 package com.optica.controllers;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.optica.entity.Role;
 import com.optica.entity.User;
+import com.optica.services.login.RoleService;
 import com.optica.services.login.SecurityService;
 import com.optica.services.login.UserService;
 import com.optica.util.UserValidator;
@@ -27,6 +31,9 @@ public class UsuarioController {
 
 	@Autowired
 	private UserValidator userValidator;
+	
+	@Autowired
+	private RoleService roleService;
 
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String registration(Model model, User user) {
@@ -40,7 +47,9 @@ public class UsuarioController {
 		if (bindingResult.hasErrors()) {
 			return "registration";
 		}
+		userForm.setRoles(roleService.findRoleByName("USER"));
 		userService.save(userForm);
+		
 		securityService.autologin(userForm.getUserName(), userForm.getPasswordConfirm());
 		return "redirect:/";
 	}
@@ -49,9 +58,12 @@ public class UsuarioController {
 	@GetMapping("/login")
 	public String login(Model model) {
 
+		model.addAttribute("roles", roleService.findAll());
+		model.addAttribute("users", userService.findAll());
+		
 		return "login";
 	}
-	@GetMapping("/web")
+	@GetMapping("/user")
 	@ResponseBody
 	public String welcomePage() {
 		return "welcome";

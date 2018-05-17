@@ -32,10 +32,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 //		http.csrf();
 
-	
-		
 		http.authorizeRequests()
-		.antMatchers("/resources/**", "/registration", "/web/**","/h2-console/")
+//		.antMatchers("/user")
+//		.hasRole("USER")
+//		.and()
+//		.authorizeRequests()
+		.antMatchers("/resources/**", "/registration","*h2-console**")
 		.permitAll()
 		.anyRequest()
 		.fullyAuthenticated()
@@ -43,7 +45,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.failureUrl("/login?error")
 		.permitAll()
 		.and()
-		.logout().permitAll();
+		.logout()
+		.permitAll();
 
 		
 

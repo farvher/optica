@@ -1,5 +1,7 @@
 package com.optica.services.login;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void save(User user) {
 		user.setPass(bCryptPasswordEncoder.encode(user.getPass()));
-		user.setRoles(roleRepository.findAll());
 		userRepository.save(user);
 
 	}
@@ -29,6 +30,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findByUsername(String username) {
 		return userRepository.findFirstByUserName(username);
+	}
+
+	@Override
+	public List<User> findAll() {
+		return userRepository.findAll();
 	}
 
 }
