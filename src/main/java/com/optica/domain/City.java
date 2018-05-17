@@ -13,5 +13,13 @@ public class City {
 	
 	private String cityName;
 	
+	private Boolean mainCity;
+	
+	private Long latitude;
+	
+	private Long length;
+	
+	
+	
 
 }
