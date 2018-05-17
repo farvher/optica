@@ -1,5 +1,6 @@
 package com.optica.services.login;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,7 +36,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 			return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPass(),
 					grantedAuthorities);
 		}
-		return null;
+		return new org.springframework.security.core.userdetails.User("Anonymous","Anonymous",Arrays.asList(new SimpleGrantedAuthority("ROLE_ANONYMOUS")));
 	}
 
 }
