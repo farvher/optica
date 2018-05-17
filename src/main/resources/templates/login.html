@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Log in with your account</title>
+
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/resources/css/common.css" rel="stylesheet"/>
+
+  
+</head>
+
+<body>
+
+<div class="container">
+
+<!--     <form method="post" action="/login" class="form-signin"> -->
+<!--         <h2 class="form-heading">Log in</h2> -->
+
+<!--         <div th:class="form-group "> -->
+<!--             <span th:text="${message}"></span> -->
+<!--             <input name="username" type="text" class="form-control" placeholder="Username" -->
+<!--                    autofocus="true"/> -->
+<!--             <input name="password" type="password" class="form-control" placeholder="Password"/> -->
+<!--             <span th:text="${error}"></span> -->
+<!--             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+
+<!--             <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button> -->
+<!--             <h4 class="text-center"><a href="/registration">Create an account</a></h4> -->
+<!--         </div> -->
+<!--     </form> -->
+    
+    
+    <div class="content">
+			<p th:if="${param.logout}" class="alert">You have been logged out</p>
+			<p th:if="${param.error}" class="alert alert-error">There was an error, please try again</p>
+			<h2>Login with Username and Password</h2>
+			<form name="form" th:action="@{/login}" action="/login" method="POST">
+				<fieldset>
+					<input type="text" name="username" value="" class="form-control"  placeholder="Username" />
+					<input type="password" name="password"  class="form-control"  placeholder="Password" />
+				</fieldset>
+				<input type="submit" id="login" value="Login"
+					class="btn btn-primary" />
+			</form>
+		</div>
+    
+
+</div>
+<!-- /container -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
+</body>
+</html>
