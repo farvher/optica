@@ -33,10 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //		http.csrf();
 
 		http.authorizeRequests()
-//		.antMatchers("/user")
-//		.hasRole("USER")
-//		.and()
-//		.authorizeRequests()
+
 		.antMatchers("/resources/**", "/registration","*h2-console**")
 		.permitAll()
 		.anyRequest()
@@ -54,8 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService);
-//		.passwordEncoder(bCryptPasswordEncoder());
+		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
 	}
 
 	@Bean(name = BeanIds.AUTHENTICATION_MANAGER)

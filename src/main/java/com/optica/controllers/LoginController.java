@@ -21,7 +21,7 @@ import com.optica.services.login.UserService;
 import com.optica.util.UserValidator;
 
 @Controller
-public class UsuarioController {
+public class LoginController {
 
 	@Autowired
 	private UserService userService;
