@@ -9,11 +9,9 @@ import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @Configuration
@@ -34,12 +32,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 
-		.antMatchers("/resources/**", "/registration","*h2-console**")
+		.antMatchers("/resources/**","/","/about","/contact", "/registration","*h2-console**")
 		.permitAll()
 		.anyRequest()
 		.fullyAuthenticated()
 		.and().formLogin().loginPage("/login")
-		.failureUrl("/login?error")
 		.permitAll()
 		.and()
 		.logout()
