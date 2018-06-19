@@ -5,24 +5,26 @@
 </head>
 <body>
 	<div class="container">
-	<div th:include="fragments/navbar :: navbar"></div>
-	
-	
-		<form method="post" th:object="${user}" th:action="@{/registration}" class="form-signin">
-		<h2 class="form-signin-heading">Create your account</h2>
+		<div th:include="fragments/navbar :: navbar"></div>
+
+
+		<form method="post" th:object="${user}" th:action="@{/registration}"
+			class="form-signin">
+			<h2 class="form-signin-heading">Create your account</h2>
 			<div class="form-group">
-				<input type="text" th:field="*{userName}" class="form-control"
-					placeholder="Username" autofocus="true"></input>
+				<input type="text" th:field="*{username}" class="form-control"
+					 required="required"  placeholder="User name" autofocus="true"></input>
 			</div>
 			<div class="form-group">
-				<input type="password"  th:field="*{pass}" class="form-control"
-					placeholder="Password"/>
+				<input type="email" th:field="*{email}" class="form-control"
+					placeholder="Email" required="required" />
+			</div>
+			<div class="form-group">
+				<input type="password" th:field="*{password}" class="form-control" 
+					 required="required"  placeholder="Password" />
 
 			</div>
-			<div class="form-group">
-				<input type="password" th:field="*{passwordConfirm}" class="form-control"
-					placeholder="Confirm your password" />
-			</div>
+
 			<div class="form-group">
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 			</div>

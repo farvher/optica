@@ -1,7 +1,10 @@
 package com.optica.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author farsan
@@ -9,26 +12,31 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-	private static final String VIEW_HOME = "index";
-
 	@GetMapping(MappingConstants.INDEX_PATH)
 	public String index() {
-		return VIEW_HOME;
+		return "index";
 	}
-	
+
 	@GetMapping(MappingConstants.ABOUT_PATH)
 	public String about() {
-		return VIEW_HOME;
+		return "about";
 	}
 
 	@GetMapping(MappingConstants.CONTACT_PATH)
 	public String contact() {
-		return VIEW_HOME;
+		return "contact";
 	}
 
-	@GetMapping("/team")
+	@GetMapping(MappingConstants.TEAM_PATH)
 	public String team() {
 		return "team";
+	}
+	
+	@PostMapping(MappingConstants.CONTACT_PATH)
+	@ResponseBody
+	public String contant(Model model) {
+		
+		return "success";
 	}
 
 }

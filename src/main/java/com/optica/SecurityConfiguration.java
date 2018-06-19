@@ -16,6 +16,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+	protected static final String [] ANY_MATCHER = {
+			"/resources/**",
+			"/",
+			"/about",
+			"/contact",
+			"/blog" ,
+			"/team", 
+			"/registration",
+			"/detail/**",
+			"/search/**",
+			"/h2-console**"};
 
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -32,7 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 
-		.antMatchers("/resources/**","/","/about","/contact","/blog" ,"/team", "/registration","*h2-console**")
+		.antMatchers(ANY_MATCHER)
 		.permitAll()
 		.anyRequest()
 		.fullyAuthenticated()

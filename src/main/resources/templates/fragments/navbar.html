@@ -26,6 +26,7 @@
 						<li><a href="/team">Team</a></li>
 						<li><a href="/blog">Blog</a></li>
 						<li><a href="/contact">Contact</a></li>
+						<li sec:authorize="isAuthenticated()"><a class="active" href="/people">User Area</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/login">Sign in</a></li>

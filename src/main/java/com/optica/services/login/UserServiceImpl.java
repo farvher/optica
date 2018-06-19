@@ -22,14 +22,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void save(User user) {
-		user.setPass(bCryptPasswordEncoder.encode(user.getPass()));
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userRepository.save(user);
 
 	}
 
 	@Override
 	public User findByUsername(String username) {
-		return userRepository.findFirstByUserName(username);
+		return userRepository.findFirstByUsername(username);
 	}
 
 	@Override
