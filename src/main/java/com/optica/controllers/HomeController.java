@@ -13,21 +13,22 @@ public class HomeController {
 
 	@GetMapping(MappingConstants.INDEX_PATH)
 	public String index() {
-
 		return VIEW_HOME;
 	}
-
+	
 	@GetMapping(MappingConstants.ABOUT_PATH)
 	public String about() {
-
 		return VIEW_HOME;
-
 	}
 
 	@GetMapping(MappingConstants.CONTACT_PATH)
 	public String contact() {
-
 		return VIEW_HOME;
+	}
+
+	@GetMapping("/team")
+	public String team() {
+		return "team";
 	}
 
 }

@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="shortcut icon" href="/resources/img/favicon.ico" />
-<title>ShareFiler</title>
-
-<!-- Bootstrap -->
-<link href="/resources/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="/resources/css/custom.css" rel="stylesheet"/>
-<link
-	href="//code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css"
-	rel="stylesheet"/>
-<link href="/resources/css/common.css" rel="stylesheet"/>
+<head th:include="fragments/header :: header('Registration - JobNext')">
 
 </head>
 <body>
 	<div class="container">
-		<form method="post" th:object="${user}" th:action="@{/registration}">
+	<div th:include="fragments/navbar :: navbar"></div>
+	
+	
+		<form method="post" th:object="${user}" th:action="@{/registration}" class="form-signin">
 		<h2 class="form-signin-heading">Create your account</h2>
 			<div class="form-group">
 				<input type="text" th:field="*{userName}" class="form-control"

@@ -1,81 +1,47 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 <head th:include="fragments/header :: header('Home - JobNext')">
 
 </head>
 <body>
 
+	<div th:include="fragments/navbar :: navbar"></div>
 
-	<header class="header4" id="header4">
 
-		<nav role="navigation" class="navbar navbar-default">
-			<div class="container">
-				<div class="navbar-header">
-					<button data-target="#navbar-collapse-02" data-toggle="collapse"
-						class="navbar-toggle" type="button">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a href="#" class="navbar-brand brand"><i class="fa fa-codepen"></i>Job Next</a>
-				</div>
+	<div class="container">
+		<div class="intro center-content">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tag-line text-center margin-top-100">Creator
+						Builder</div>
+					<h1 class="text-center m-auto margin-top-20">We Love Creative
+						Work</h1>
+					<p class="text-center m-auto margin-bottom-40">Tempor enim
+						incididunt ab quibusdam eu pariatur do nulla te in sint appellat
+						ab aut fore labore de possumus. Elit relinqueret ingeniis lorem
+						vidisse, sed malis nulla culpa commodo fugiat a nescius.</p>
 
-				<div id="navbar-collapse-02" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="/">Home</a></li>
-						<li><a href="/about">About</a></li>
-						<li><a href="/Team">Team</a></li>
-						<li><a href="/Blog">Blog</a></li>
-						<li><a href="/Contact">Contact</a></li>
+					<ul class="icon-box list-inline text-center">
+						<li><i class="fa fa-apple"></i></li>
+						<li><i class="fa fa-android"></i></li>
+						<li><i class="fa fa-windows"></i></li>
+						<li><i class="fa fa-linux"></i></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/login">Sign in</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-		</nav>
 
-		<div class="container">
-		<div sec:authorize="isAuthenticated()">
-								<form th:action="@{/logout}" method="post">
-									<input type="submit" value="Sign Out" />
-								</form>
-
-						</div>
-			<div class="intro center-content">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="tag-line text-center margin-top-100">Creator
-							Builder</div>
-						<h1 class="text-center m-auto margin-top-20">We Love Creative
-							Work</h1>
-						<p class="text-center m-auto margin-bottom-40">Tempor enim
-							incididunt ab quibusdam eu pariatur do nulla te in sint appellat
-							ab aut fore labore de possumus. Elit relinqueret ingeniis lorem
-							vidisse, sed malis nulla culpa commodo fugiat a nescius.</p>
-
-						<ul class="icon-box list-inline text-center">
-							<li><i class="fa fa-apple"></i></li>
-							<li><i class="fa fa-android"></i></li>
-							<li><i class="fa fa-windows"></i></li>
-							<li><i class="fa fa-linux"></i></li>
-						</ul>
-
-						<div class="app-interface padding-top-40">
-							<img class="img-responsive m-auto" src="images/interface.png"
-								alt="home-interface">
-						</div>
+					<div class="app-interface padding-top-40">
+						<img class="img-responsive m-auto" src="images/interface.png"
+							alt="home-interface">
 					</div>
-
 				</div>
-				<!-- row -->
 
 			</div>
-			<!-- intro -->
+			<!-- row -->
 
 		</div>
-		<!-- container -->
+		<!-- intro -->
+
+	</div>
+	<!-- container -->
 
 	</header>
 	<!-- header -->

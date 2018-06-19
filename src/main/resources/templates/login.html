@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<title>Log in with your account</title>
-
-
-
-<link href="/resources/css/bootstrap.min.css" rel="stylesheet" />
-<link href="/resources/css/common.css" rel="stylesheet" />
-
-
+<head th:include="fragments/header :: header('Login - JobNext')">
 </head>
 
 <body>
-	<div class="container">
 
+	<div th:include="fragments/navbar :: navbar"></div>
+	<div class="container">
 
 		<div class="content">
 			<p th:if="${param.logout}" class="alert">You have been logged out</p>
@@ -35,17 +24,13 @@
 				</div>
 				<a th:href="@{/registration}">Registration</a>
 			</form>
-
 		</div>
-
 		<ul>
 			<li th:each="user : ${users}" th:text="|${user.userName}|"></li>
 		</ul>
-
 		<ul>
 			<li th:each="rol : ${roles}" th:text="${rol.name}"></li>
 		</ul>
-
 	</div>
 	<!-- /container -->
 	<script

@@ -8,7 +8,7 @@ public class PeopleController {
 
 	private static final String INDEX = "people";
 
-	@GetMapping("/people/")
+	@GetMapping("/people")
 	public static String index() {
 		return INDEX;
 	}
