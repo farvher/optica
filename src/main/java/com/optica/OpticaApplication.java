@@ -10,7 +10,7 @@ public class OpticaApplication {
 
 	/**
 	 * TODO BACK-END
-	 * 1. job-offer detail controller service 
+	 * 1. load in session all user data
 	 * 2. People -> crud hv 
 	 * 3. job-offer search by keyword and city 
 	 * 4. job-offer new offer crud

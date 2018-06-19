@@ -16,6 +16,8 @@ import javax.persistence.Transient;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.optica.domain.Curriculum;
+
 @Entity
 @Table(name = "users")
 public class User implements UserDetails{
@@ -35,6 +37,17 @@ public class User implements UserDetails{
 	@ManyToMany
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles;
+
+	@Transient
+	private Curriculum curriculum;
+	
+	public Curriculum getCurriculum() {
+		return curriculum;
+	}
+
+	public void setCurriculum(Curriculum curriculum) {
+		this.curriculum = curriculum;
+	}
 
 	@Transient
 	private Collection<GrantedAuthority> authorities;

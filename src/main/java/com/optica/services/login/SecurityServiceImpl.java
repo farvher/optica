@@ -55,16 +55,10 @@ public class SecurityServiceImpl implements SecurityService {
 	@Override
 	public User getCurrentUser() {
 		if (SecurityContextHolder.getContext().getAuthentication() != null) {
- 
             Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            if (principal instanceof String) {
-
-            	User user = new User("anonimous","anonimous");
-                return user;
-            }
             return (User) principal;
         } else {
-            return null;
+            throw new IllegalStateException("User not found");
         }
 	}
 

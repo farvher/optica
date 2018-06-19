@@ -16,7 +16,7 @@ public class CurriculumServiceImpl implements CurriculumService {
 
 	@Override
 	public Curriculum findById(Long id) {
-		return curriculumDao.findById(id).orElseThrow(() -> new IllegalArgumentException("Curriculum not found"));
+		return curriculumDao.findById(id).orElse(new Curriculum());
 	}
 
 	@Override

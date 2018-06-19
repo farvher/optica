@@ -33,7 +33,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 			for (Role role : user.getRoles()) {
 				grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
 			}
-			return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+			return new User(user.getUsername(), user.getPassword(),
 					grantedAuthorities);
 		}
 		return new org.springframework.security.core.userdetails.User("Anonymous","Anonymous",Arrays.asList(new SimpleGrantedAuthority("ANONYMOUS")));

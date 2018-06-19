@@ -1,6 +1,5 @@
 package com.optica;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,22 +11,17 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+
+import com.optica.entity.User;
 
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
-	protected static final String [] ANY_MATCHER = {
-			"/resources/**",
-			"/",
-			"/about",
-			"/contact",
-			"/blog" ,
-			"/team", 
-			"/registration",
-			"/detail/**",
-			"/search/**",
-			"/h2-console**"};
+
+	protected static final String[] ANY_MATCHER = { "/resources/**", "/", "/about", "/contact", "/blog", "/team",
+			"/registration", "/detail/**", "/search/**", "/h2-console**" };
 
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -40,21 +34,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-//		http.csrf();
+		// http.csrf();
 
 		http.authorizeRequests()
-
 		.antMatchers(ANY_MATCHER)
 		.permitAll()
 		.anyRequest()
 		.fullyAuthenticated()
-		.and().formLogin().loginPage("/login")
+		.and()
+		.formLogin()
+		.loginPage("/login")
+		.successHandler(authenticationSuccessHandler())
 		.permitAll()
 		.and()
 		.logout()
 		.permitAll();
-
-		
 
 	}
 
@@ -67,5 +61,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
+	}
+
+	private AuthenticationSuccessHandler authenticationSuccessHandler() {
+		
+		return new SimpleUrlAuthenticationSuccessHandler();
+//		return (request, response, authentication) -> {
+//			((User)authentication.getPrincipal()).setId(1L);
+//			response.sendRedirect("/people");
+//		};
+
 	}
 }
