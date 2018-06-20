@@ -7,7 +7,7 @@
 <body>
 
 	<div th:fragment="navbar">
-		<nav role="navigation" class="navbar  transparent  ">
+		<nav role="navigation" class="navbar navbar-default  ">
 			<div class="container">
 				<div class="navbar-header">
 					<button data-target="#navbar-collapse-02" data-toggle="collapse"
@@ -29,17 +29,21 @@
 						<li sec:authorize="isAuthenticated()"><a class="active" href="/people">User Area</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/login">Sign in</a></li>
+						<li sec:authorize="isAnonymous()"><a href="/login">Sign in</a></li>
 						<li sec:authorize="isAuthenticated()">
-								<form th:action="@{/logout}" method="post">
-									<input type="submit" class="btn btn-link" value="Sign Out" />
-								</form>
+						<a href="#" onclick="javascript:document.getElementById('logout-form').submit()">Sign Out</a>
+<!-- 								<form th:action="@{/logout}" method="post"> -->
+<!-- 									<input type="submit" class="btn-link" value="Sign Out" /> -->
+<!-- 								</form> -->
 						</li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
 			</div>
 		</nav>
+		<form th:action="@{/logout}" id="logout-form" method="post" class="hidden">
+				<input type="submit" class="btn-link" value="Sign Out" />
+		</form>
 	</div>
 
 

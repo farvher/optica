@@ -45,7 +45,6 @@ public class PeopleController {
 
 	private void loadModel(Model model, User user) {
 		model.addAttribute("user",user);
-		model.addAttribute("curriculum", curriculumService.findById(user.getId()));
 		
 
 	}

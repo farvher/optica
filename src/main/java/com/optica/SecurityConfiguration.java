@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 import com.optica.entity.User;
+import com.optica.services.login.UserService;
 
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @Configuration
@@ -25,6 +26,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
+	
+	@Autowired
+	private UserService userService;
 
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -65,11 +69,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	private AuthenticationSuccessHandler authenticationSuccessHandler() {
 		
-		return new SimpleUrlAuthenticationSuccessHandler();
-//		return (request, response, authentication) -> {
-//			((User)authentication.getPrincipal()).setId(1L);
-//			response.sendRedirect("/people");
-//		};
+		return (request, response, authentication) -> {
+			String username = ((User)authentication.getPrincipal()).getUsername();
+			User loggedUser = userService.findByUsername(username);
+			((User)authentication.getPrincipal()).setId(loggedUser.getId());
+			((User)authentication.getPrincipal()).setEmail(loggedUser.getEmail());
+			((User)authentication.getPrincipal()).setCurriculum(loggedUser.getCurriculum());
+			response.sendRedirect("/people");
+		};
 
 	}
 }

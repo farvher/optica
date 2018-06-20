@@ -5,6 +5,10 @@
 
 <body>
 
+<script th:inline="javascript" sec:authorize="isAuthenticated()">
+    window.location.href = '/';
+</script>
+
 	<div th:include="fragments/navbar :: navbar"></div>
 	<div class="container">
 

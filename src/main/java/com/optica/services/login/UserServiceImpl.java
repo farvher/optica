@@ -37,4 +37,9 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findAll();
 	}
 
+	@Override
+	public User findById(Long id) {
+		return userRepository.findById(id).orElseThrow(() -> new IllegalStateException("User not found by id")); 
+	}
+
 }
