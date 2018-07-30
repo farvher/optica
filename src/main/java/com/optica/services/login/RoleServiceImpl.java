@@ -13,7 +13,7 @@ public class RoleServiceImpl implements RoleService {
 
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
 	@Override
 	public void save(Role role) {
 		roleRepository.save(role);

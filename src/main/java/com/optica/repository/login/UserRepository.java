@@ -9,7 +9,7 @@ import com.optica.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-	
+
 	User findFirstByUsername(String username);
 
 }

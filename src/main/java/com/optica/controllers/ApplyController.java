@@ -30,7 +30,7 @@ public class ApplyController {
 
 		Apply apply = new Apply();
 		User user = securityService.getCurrentUser();
-		
+
 		if (user.getCurriculum() != null) {
 			apply.setActive(true);
 			apply.setApplyDate(LocalDate.now());

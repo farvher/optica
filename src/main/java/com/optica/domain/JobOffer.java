@@ -240,7 +240,7 @@ public class JobOffer {
 	public void setHighLight(Boolean highLight) {
 		this.highLight = highLight;
 	}
-	
-	
-	
+
+
+
 }

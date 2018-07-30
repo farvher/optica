@@ -3,9 +3,9 @@ package com.optica.controllers;
 public interface MappingConstants {
 
 	String INDEX_PATH = "/";
-	
+
 	String LOGIN_PATH = "/login";
-	
+
 	String REGISTRATION_PATH = "/registration";
 
 	String ABOUT_PATH = "/about";

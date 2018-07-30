@@ -45,7 +45,7 @@ public class PeopleController {
 
 	private void loadModel(Model model, User user) {
 		model.addAttribute("user",user);
-		
+
 
 	}
 

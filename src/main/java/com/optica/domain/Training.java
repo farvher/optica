@@ -10,7 +10,7 @@ import javax.persistence.Id;
  * */
 @Entity
 public class Training {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;

@@ -24,11 +24,11 @@ public class SecurityServiceImpl implements SecurityService {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
-	
+
 	@Autowired
 	private UserService userService;
 
-	
+
     private static final Logger logger = LoggerFactory.getLogger(SecurityServiceImpl.class);
 
 
@@ -46,12 +46,12 @@ public class SecurityServiceImpl implements SecurityService {
 		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
 				userDetails, password,userDetails.getAuthorities());
-		
+
 
 		Authentication authentication =  authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
 		if (usernamePasswordAuthenticationToken.isAuthenticated()) {
-			
+
 			User loggedUser = userService.findByUsername(username);
 			((User)authentication.getPrincipal()).setId(loggedUser.getId());
 			((User)authentication.getPrincipal()).setEmail(loggedUser.getEmail());

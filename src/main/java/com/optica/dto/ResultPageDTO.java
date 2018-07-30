@@ -9,15 +9,15 @@ import com.optica.domain.JobOffer;
 public class ResultPageDTO implements Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	
+
+
 	private List<JobOffer> jobOffers;
-	
+
 	private Integer total;
-	
+
 	private Map<String, String[]> filters;
 
 	public List<JobOffer> getJobOffers() {
@@ -43,8 +43,8 @@ public class ResultPageDTO implements Serializable {
 	public void setFilters(Map<String, String[]> filters) {
 		this.filters = filters;
 	}
-	
 
-	
-	
+
+
+
 }

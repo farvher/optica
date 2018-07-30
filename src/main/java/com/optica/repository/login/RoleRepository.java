@@ -13,8 +13,8 @@ import com.optica.entity.Role;
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
 	List<Role> findAll();
-	
+
 	List<Role> findByName(String name);
-	
-	
+
+
 }

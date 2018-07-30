@@ -40,7 +40,7 @@ public class User implements UserDetails{
 
 	@Transient
 	private Curriculum curriculum;
-	
+
 	public Curriculum getCurriculum() {
 		return curriculum;
 	}
@@ -51,7 +51,7 @@ public class User implements UserDetails{
 
 	@Transient
 	private Collection<GrantedAuthority> authorities;
-	
+
 	public User() {
 	}
 

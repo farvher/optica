@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.optica.services;
 
@@ -21,14 +21,14 @@ public class ApplyServiceImpl implements ApplyService {
 
 	@Autowired
 	private ApplyDao applyDao;
-	
+
 	@Autowired
 	private CurriculumDao curriculumDao;
-	
+
 	@Autowired
 	private JobOfferDao jobOfferDao;
-	
-	
+
+
 	@Override
 	public List<Apply> getAppliesByCurriculum(Long id,Pageable pageable) {
 		return applyDao.findByCurriculumId(id,pageable);
@@ -45,7 +45,7 @@ public class ApplyServiceImpl implements ApplyService {
 	public void applyForJobOffer(Apply apply) {
 		Long curriculumId = apply.getCurriculumId();
 		Long jobOfferId = apply.getJobOfferId();
-		if(!applyDao.existByJobOfferIdAndCurriculumId(jobOfferId,curriculumId)) {
+		if(applyDao.findByJobOfferIdAndCurriculumId(jobOfferId,curriculumId).isEmpty()) {
 			applyDao.save(apply);
 		}
 	}

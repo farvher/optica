@@ -31,11 +31,11 @@ public class HomeController {
 	public String team() {
 		return "team";
 	}
-	
+
 	@PostMapping(MappingConstants.CONTACT_PATH)
 	@ResponseBody
 	public String contant(Model model) {
-		
+
 		return "success";
 	}
 

@@ -26,7 +26,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
-	
+
 	@Autowired
 	private UserService userService;
 
@@ -68,7 +68,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 	private AuthenticationSuccessHandler authenticationSuccessHandler() {
-		
+
 		return (request, response, authentication) -> {
 			String username = ((User)authentication.getPrincipal()).getUsername();
 			User loggedUser = userService.findByUsername(username);

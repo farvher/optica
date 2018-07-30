@@ -20,7 +20,7 @@ public class TokenLogin {
 	LocalDate expirationDate;
 
 	LocalDate creationDate;
-	
+
 	Boolean enabled;
 
 	@Transient
@@ -53,7 +53,7 @@ public class TokenLogin {
 	public LocalDate getCreationDate() {
 		return creationDate;
 	}
-	
+
 
 	public Boolean getEnabled() {
 		return enabled;
@@ -70,6 +70,6 @@ public class TokenLogin {
 	public Boolean getValidToken() {
 		return expirationDate == null ? false : enabled && expirationDate.isBefore(LocalDate.now());
 	}
-	
+
 
 }

@@ -46,9 +46,9 @@ public class Curriculum {
 	private String introductionTitle;
 
 	private String introduction;
-	
+
 	private String currentSituation;
-	
+
 	private Long workAreaId;
 
 	public Long getId() {
@@ -210,7 +210,7 @@ public class Curriculum {
 	public void setWorkAreaId(Long workAreaId) {
 		this.workAreaId = workAreaId;
 	}
-	
-		
-	
+
+
+
 }

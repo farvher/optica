@@ -13,14 +13,14 @@ import com.optica.services.CompanyService;
 
 @RestController()
 public class CompanyController {
-	
+
 	@Autowired
 	private CompanyService companyService;
-	
+
 	@ResponseBody
 	@GetMapping("/company/all")
 	public List<Company> getCompanies() {
-		
+
 		return companyService.findAllCompanies();
 	}
 

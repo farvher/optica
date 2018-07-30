@@ -10,7 +10,7 @@ public class CustomerDto {
 
 	@Email
 	private String name;
-	
+
 	@NotNull
 	@Max(value = 18)
 	@Min(15)
@@ -31,9 +31,9 @@ public class CustomerDto {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

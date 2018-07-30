@@ -12,35 +12,35 @@ public class Company {
 	private Long id;
 
 	private String companyName;
-	
+
 	private String nit;
-	
+
 	private String country;
-	
+
 	private Long businessSectorId;
-	
+
 	private Long workersNumber;
-	
+
 	private String URLImage;
-	
+
 	private String description;
 
 	private String address;
-	
+
 	private String phone;
-	
+
 	private String phone2;
-	
+
 	private String webSite;
-	
+
 	private Long userIdAdmin;
-	
+
 	private Long cityId;
-	
+
 	private String neighborhood;
-	
+
 	private Long Latitude;
-	
+
 	private Long length;
 
 	public Long getId() {
@@ -178,9 +178,9 @@ public class Company {
 	public void setLength(Long length) {
 		this.length = length;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

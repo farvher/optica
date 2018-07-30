@@ -6,11 +6,11 @@ import javax.persistence.Id;
 
 @Entity
 public class Schedule {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	private String scheduleDescription;
 
 	private String scheduleAbreviate;
@@ -38,7 +38,7 @@ public class Schedule {
 	public void setScheduleAbreviate(String scheduleAbreviate) {
 		this.scheduleAbreviate = scheduleAbreviate;
 	}
-	
+
 
 
 }

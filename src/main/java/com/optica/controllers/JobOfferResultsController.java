@@ -15,22 +15,22 @@ import com.optica.services.search.SearchJobOfferService;
 public class JobOfferResultsController {
 
 	private static final String RESULT_PAGE = "";
-	
-	
+
+
 	@Autowired
 	private SearchJobOfferService searchJobOfferService;
 
 	@Autowired
 	private FilterJobOfferService filterJobOfferService;
-	
-	
+
+
 	@GetMapping("/find")
 	public String find(String query , HttpServletRequest request, Model model) {
-		
-		
+
+
 		return RESULT_PAGE;
-	}  
-	
+	}
+
 
 	/**
 	 * search by filters
@@ -38,7 +38,7 @@ public class JobOfferResultsController {
 	public void executeSearch(Model model, HttpServletRequest request) {
 		ResultPageDTO resultPage = new ResultPageDTO();
 		resultPage.setJobOffers(filterJobOfferService.filterJobOffer(request.getParameterMap()));
-		model.addAttribute("resultPage", resultPage);		
+		model.addAttribute("resultPage", resultPage);
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class JobOfferResultsController {
 	public void executeSearch(String city, String keyword, Model model, HttpServletRequest request) {
 		ResultPageDTO resultPage = new ResultPageDTO();
 		resultPage.setJobOffers(searchJobOfferService.findJobOffersByKeywordAndCity(keyword, city));
-		model.addAttribute("resultPage", resultPage);		
+		model.addAttribute("resultPage", resultPage);
 	}
 
 }

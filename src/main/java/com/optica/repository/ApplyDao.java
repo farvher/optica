@@ -15,5 +15,5 @@ public interface ApplyDao extends JpaRepository<Apply, Long> {
 
 	List<Apply> findByJobOfferId(Long id, Pageable pageable);
 
-	Boolean existByJobOfferIdAndCurriculumId(Long id1, Long id2);
+	List<Apply> findByJobOfferIdAndCurriculumId(Long id1, Long id2);
 }

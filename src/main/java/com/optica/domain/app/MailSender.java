@@ -10,9 +10,9 @@ public class MailSender {
 	@Id
 	@GeneratedValue
 	Long id;
-	
+
 	String mailContent;
-	
+
 	String subject;
 
 	public Long getId() {
@@ -38,6 +38,6 @@ public class MailSender {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	
-	
+
+
 }

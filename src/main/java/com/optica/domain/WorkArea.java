@@ -5,7 +5,7 @@ import javax.persistence.Id;
 
 public class WorkArea {
 
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;

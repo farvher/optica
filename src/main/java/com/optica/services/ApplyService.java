@@ -9,11 +9,11 @@ import com.optica.domain.Apply;
 public interface ApplyService {
 
 	List<Apply> getAppliesByCurriculum(Long id,Pageable pageable);
-	
+
 	List<Apply> getAppliesByJobOffer(Long id,Pageable pageable);
-	
+
 	void applyForJobOffer(Apply apply);
-	
+
 	void deleteApply(Long id);
-	
+
 }
