@@ -4,24 +4,24 @@
 
 </head>
 <body>
-	<div class="container">
-		<div th:include="fragments/navbar :: navbar"></div>
+	<div th:include="fragments/navbar :: navbar"></div>
 
+	<div class="container">
 
 		<form method="post" th:object="${user}" th:action="@{/registration}"
 			class="form-signin">
 			<h2 class="form-signin-heading">Create your account</h2>
 			<div class="form-group">
 				<input type="text" th:field="*{username}" class="form-control"
-					 required="required"  placeholder="User name" autofocus="true"></input>
+					required="required" placeholder="User name" autofocus="true"></input>
 			</div>
 			<div class="form-group">
 				<input type="email" th:field="*{email}" class="form-control"
 					placeholder="Email" required="required" />
 			</div>
 			<div class="form-group">
-				<input type="password" th:field="*{password}" class="form-control" 
-					 required="required"  placeholder="Password" />
+				<input type="password" th:field="*{password}" class="form-control"
+					required="required" placeholder="Password" />
 
 			</div>
 
@@ -34,14 +34,7 @@
 
 
 	</div>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="/resources/js/bootstrap.min.js"></script>
-	<script src="/resources/js/listeners.js"></script>
-	<script src="/resources/js/ajax.js"></script>
-	<script src="/resources/js/jqueryui/jquery-ui.js"></script>
+	<div th:include="fragments/header :: footer-home"></div>
 
 </body>
 </html>

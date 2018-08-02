@@ -7,23 +7,39 @@
 
 	<div th:include="fragments/navbar :: navbar"></div>
 	<div class="container">
-		<!-- 	AÑADIR CONTENIDO AQUI  -->
-		<div class="card" style="width: 18rem;">
-			<div class="card-body">
-				<h5 class="card-title" th:text="${user.username}">Card title</h5>
-				<h6 class="card-subtitle mb-2 text-muted" th:text="${user.Email}">Card subtitle</h6>
-				<p class="card-text">Some quick example text to build on the
-					card title and make up the bulk of the card's content.</p>
-				<a href="#" class="card-link">Card link</a> <a href="#"
-					class="card-link">Another link</a>
+
+		<div class="row align-items-start">
+			<div class="col-6 col-md-4" >
+			</div>
+			<div class="col-12 col-md-8">
+				<div th:include="people/notifications :: notifications"></div>
+			</div>
+
+		</div>
+		<div class="row align-items-center">
+			<div class="col-6 col-md-4">
+				<div th:include="people/menuleft :: menuleft"></div>
+
+			</div>
+			<div class="col-12 col-md-8">
+				<div th:include="people/userarea :: userarea"></div>
+
 			</div>
 		</div>
+		<div class="row align-items-end">
+			<div class="col" contenteditable="inherit">
+
+				<div class="alert alert-secondary" role="alert">A simple
+					secondary alertcheck it out!</div>
+			</div>
+
+		</div>
+
+		<!-- 	AÑADIR CONTENIDO AQUI  -->
 
 
 	</div>
 	<!-- /container -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="/resources/js/bootstrap.min.js"></script>
+	<div th:include="fragments/header :: footer-home"></div>
 </body>
 </html>
