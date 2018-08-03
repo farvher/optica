@@ -9,7 +9,6 @@ import javax.persistence.Transient
 import kotlin.properties.Delegates
 
 
-@Entity
 class TokenLogin {
 
     @Id
@@ -20,16 +19,10 @@ class TokenLogin {
 
     var expirationDate: LocalDate? = null
 
-    var creationDate: LocalDate by Delegates.notNull()
+    var creationDate: LocalDate? = null
 
     var enabled: Boolean? = null
 
-    @Transient
-    internal var validToken: Boolean? = null
-
-    fun getValidToken(): Boolean? {
-        return expirationDate != null && enabled!! && expirationDate!!.isBefore(LocalDate.now())
-    }
 
 
 }

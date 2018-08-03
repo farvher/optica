@@ -13,5 +13,4 @@ interface ApplyDao : JpaRepository<Apply, Long> {
 
     fun findByJobOfferId(id: Long?, pageable: Pageable): List<Apply>
 
-    fun existByJobOfferIdAndCurriculumId(id1: Long?, id2: Long?): Boolean?
 }

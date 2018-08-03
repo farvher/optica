@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import kotlin.properties.Delegates
 
-@Entity
 class MailSender {
 
     @Id

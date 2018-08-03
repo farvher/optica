@@ -40,7 +40,7 @@ class LoginController {
     @RequestMapping(value = MappingConstants.REGISTRATION_PATH, method = arrayOf(RequestMethod.POST))
     fun registration(@ModelAttribute("user") userForm: User, bindingResult: BindingResult, model: Model,
                      request: HttpServletRequest): String {
-        userValidator!!.validate(userForm, bindingResult)
+        userValidator.validate(userForm, bindingResult)
 
         if (bindingResult.hasErrors()) {
             return "redirect:/registration"

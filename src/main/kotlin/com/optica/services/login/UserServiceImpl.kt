@@ -33,7 +33,7 @@ class UserServiceImpl : UserService {
     }
 
     override fun findById(id: Long?): User {
-        return userRepository!!.findById(id!!).orElseThrow { IllegalStateException("User not found by id") }
+        return userRepository!!.findById(id!!).orElseThrow<IllegalStateException?> { IllegalStateException("User not found by id") }
     }
 
 }
