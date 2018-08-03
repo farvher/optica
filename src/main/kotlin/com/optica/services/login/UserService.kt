@@ -6,7 +6,7 @@ interface UserService {
 
     fun save(user: User)
 
-    fun findByUsername(username: String): User
+    fun findByUsername(username: String?): User
 
     fun findById(id: Long?): User
 

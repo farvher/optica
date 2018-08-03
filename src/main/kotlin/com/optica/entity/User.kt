@@ -29,14 +29,14 @@ class User : UserDetails {
     private var password: String? = null
 
     @ManyToMany
-    @JoinTable(name = "user_role", joinColumns =  v<JoinColumn(name = "user_id"), inverseJoinColumns = JoinColumn(name = "role_id"))
+    @JoinTable(name = "user_role")
     var roles: List<Role>? = null
 
     @Transient
     var curriculum: Curriculum? = null
 
     @Transient
-    private val authorities: Collection<GrantedAuthority>? = null
+    private var authorities: Collection<GrantedAuthority>? = null
 
     constructor() {}
 
@@ -45,7 +45,7 @@ class User : UserDetails {
         this.password = password
     }
 
-    constructor(username: String, password: String, grantedAuthorities: Set<GrantedAuthority>) {
+    constructor(username: String?, password: String?, grantedAuthorities: Set<GrantedAuthority>) {
         this.username = username
         this.password = password
         this.authorities = grantedAuthorities
@@ -67,7 +67,7 @@ class User : UserDetails {
         this.password = password
     }
 
-    override fun getAuthorities(): Collection<GrantedAuthority> {
+    override fun getAuthorities(): Collection<GrantedAuthority>? {
         return authorities
     }
 

@@ -17,7 +17,8 @@ import org.springframework.stereotype.Service
 import com.optica.entity.User
 
 @Service
-class SecurityServiceImpl : SecurityService {
+open class SecurityServiceImpl : SecurityService {
+
 
     @Autowired
     private val authenticationManager: AuthenticationManager? = null
@@ -46,7 +47,7 @@ class SecurityServiceImpl : SecurityService {
         } else "Annonymous"
     }
 
-    override fun autologin(username: String, password: String, request: HttpServletRequest) {
+    override fun autologin(username: String?, password: String?, request: HttpServletRequest) {
         val userDetails = userDetailsService!!.loadUserByUsername(username)
         val usernamePasswordAuthenticationToken = UsernamePasswordAuthenticationToken(
                 userDetails, password, userDetails.authorities)

@@ -6,6 +6,7 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.Transient
+import kotlin.properties.Delegates
 
 
 @Entity
@@ -15,11 +16,11 @@ class TokenLogin {
     @GeneratedValue
     var id: Long? = null
 
-    var token: String
+    var token: String by Delegates.notNull()
 
     var expirationDate: LocalDate? = null
 
-    var creationDate: LocalDate
+    var creationDate: LocalDate by Delegates.notNull()
 
     var enabled: Boolean? = null
 

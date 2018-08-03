@@ -3,6 +3,7 @@ package com.optica.domain.app
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
+import kotlin.properties.Delegates
 
 @Entity
 class MailSender {
@@ -11,9 +12,9 @@ class MailSender {
     @GeneratedValue
     var id: Long? = null
 
-    var mailContent: String
+    var mailContent: String by Delegates.notNull()
 
-    var subject: String
+    var subject: String by Delegates.notNull()
 
 
 }

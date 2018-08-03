@@ -10,6 +10,6 @@ import com.optica.entity.User
 @Repository
 interface UserRepository : JpaRepository<User, Long> {
 
-    fun findFirstByUsername(username: String): User
+    fun findFirstByUsername(username: String?): User
 
 }

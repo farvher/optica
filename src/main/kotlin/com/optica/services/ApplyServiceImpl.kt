@@ -40,9 +40,7 @@ class ApplyServiceImpl : ApplyService {
     override fun applyForJobOffer(apply: Apply) {
         val curriculumId = apply.curriculumId
         val jobOfferId = apply.jobOfferId
-        if (!applyDao!!.existByJobOfferIdAndCurriculumId(jobOfferId, curriculumId)) {
-            applyDao.save(apply)
-        }
+
     }
 
 

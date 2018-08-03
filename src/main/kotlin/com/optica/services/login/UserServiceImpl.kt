@@ -12,19 +12,19 @@ import com.optica.repository.login.UserRepository
 class UserServiceImpl : UserService {
 
     @Autowired
-    private val userRepository: UserRepository? = null
+    private var userRepository: UserRepository? = null
     @Autowired
     private val roleRepository: RoleRepository? = null
     @Autowired
     private val bCryptPasswordEncoder: BCryptPasswordEncoder? = null
 
     override fun save(user: User) {
-        user.password = bCryptPasswordEncoder!!.encode(user.password!!)
+        user.setPassword(bCryptPasswordEncoder!!.encode(user.password!!))
         userRepository!!.save(user)
 
     }
 
-    override fun findByUsername(username: String): User {
+    override fun findByUsername(username: String?): User {
         return userRepository!!.findFirstByUsername(username)
     }
 
