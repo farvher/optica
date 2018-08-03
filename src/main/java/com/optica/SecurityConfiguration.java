@@ -74,7 +74,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			User loggedUser = userService.findByUsername(username);
 			((User)authentication.getPrincipal()).setId(loggedUser.getId());
 			((User)authentication.getPrincipal()).setEmail(loggedUser.getEmail());
-			((User)authentication.getPrincipal()).setCurriculum(loggedUser.getCurriculum());
 			response.sendRedirect("/people");
 		};
 

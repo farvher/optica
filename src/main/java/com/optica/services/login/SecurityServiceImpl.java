@@ -55,7 +55,6 @@ public class SecurityServiceImpl implements SecurityService {
 			User loggedUser = userService.findByUsername(username);
 			((User)authentication.getPrincipal()).setId(loggedUser.getId());
 			((User)authentication.getPrincipal()).setEmail(loggedUser.getEmail());
-			((User)authentication.getPrincipal()).setCurriculum(loggedUser.getCurriculum());
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 			logger.debug(String.format("Auto login %s successfully!", username));
 		}
