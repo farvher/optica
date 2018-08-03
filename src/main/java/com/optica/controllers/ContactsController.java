@@ -31,7 +31,7 @@ public class ContactsController {
     @GetMapping("/app/people/contacts")
     public String getContacts(Model model) {
         User user = securityService.getCurrentUser();
-        Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(1,SIZEPERPAGE),user.getId());
+        Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(0,SIZEPERPAGE),user.getId());
         model.addAttribute("contacts",contacts.getContent());
         return CONTACTS;
     }
