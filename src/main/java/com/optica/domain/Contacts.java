@@ -23,9 +23,8 @@ public class Contacts {
 
     @Override
     public String toString() {
-        return "Contacts{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+        return "Contact{" +
+                "name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';

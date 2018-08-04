@@ -11,7 +11,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -19,6 +21,8 @@ import java.util.List;
 public class ContactsController {
 
     private static final String CONTACTS = "contacts::contacts";
+
+    private static final String CONTACTS_CREATE = "contacts::create";
 
     private static final int SIZEPERPAGE = 10;
 
@@ -31,16 +35,31 @@ public class ContactsController {
     @GetMapping("/app/people/contacts")
     public String getContacts(Model model) {
         User user = securityService.getCurrentUser();
-        Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(0,SIZEPERPAGE),user.getId());
-        model.addAttribute("contacts",contacts.getContent());
+        Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(0, SIZEPERPAGE), user.getId());
+        model.addAttribute("contacts", contacts.getContent());
         return CONTACTS;
     }
+
     @GetMapping("/app/people/contacts/{page}")
-    public String getContacts(@PathVariable int page,Model model) {
+    public String getContacts(@PathVariable int page, Model model) {
         User user = securityService.getCurrentUser();
-        Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(page,SIZEPERPAGE),user.getId());
-        model.addAttribute("contacts",((Page) contacts).getContent());
+        Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(page, SIZEPERPAGE), user.getId());
+        model.addAttribute("contacts", ((Page) contacts).getContent());
         return CONTACTS;
+    }
+
+    @GetMapping("/app/people/contacts/create")
+    public String createContact() {
+
+        return CONTACTS_CREATE;
+    }
+
+    @PostMapping("/app/people/contacts/create")
+    public String createContact(@ModelAttribute Contacts contact, Model model) {
+
+        contactsService.createContact(contact);
+
+        return CONTACTS_CREATE;
     }
 
 

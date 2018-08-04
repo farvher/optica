@@ -24,9 +24,13 @@ public class PeopleController {
 	@Autowired
 	private SecurityService securityService;
 
+	@Autowired
+	private ContactsController contactsController;
+
 	@GetMapping(MappingConstants.PEOPLE_PATH)
 	public String index(Model model) {
 		User user = securityService.getCurrentUser();
+        contactsController.getContacts(model);
 		loadModel(model, user);
 		return "people";
 	}
