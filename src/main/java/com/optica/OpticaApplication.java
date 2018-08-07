@@ -9,18 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OpticaApplication {
 
 	/**
-	 * TODO BACK-END
-	 * 1. load in session all user data
-	 * 2. People -> crud hv
-	 * 3. job-offer search by keyword and city
-	 * 4. job-offer new offer crud
-	 * 5. people apply job offer
-
-	 * TODO FRONT-END
-	 * 1. contact form
 	 *
+	 * el usuario se registra e importa contactos de su cel
+     * enviara un mensaje de texto a n contactos
+     * enviara un mensaje de texto personalizado basado  en columnas
+     * enviara mensaje a travez de un web service
+     * limita la cantidad de mensajes por membresia
+     * informacion de membresia comprada
+     *
 	 * */
-
 	public static void main(String[] args) {
 		SpringApplication.run(OpticaApplication.class, args);
 	}
