@@ -28,7 +28,7 @@ public class ContactsController {
 
     private static final String CONTACTS_CREATE = "contacts::create";
 
-    private static final int SIZEPERPAGE = 10;
+    private static final int SIZEPERPAGE = 5;
 
     @Autowired
     private SecurityService securityService;
@@ -40,7 +40,10 @@ public class ContactsController {
     public String getContacts(Model model) {
         User user = securityService.getCurrentUser();
         Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(0, SIZEPERPAGE), user.getId());
+        contacts.getTotalElements();
         model.addAttribute("contacts", contacts.getContent());
+        model.addAttribute("contacts-pages", contacts.getTotalElements());
+        model.addAttribute("contacts-total", contacts.getTotalPages());
         return CONTACTS;
     }
 
@@ -48,7 +51,9 @@ public class ContactsController {
     public String getContacts(@PathVariable int page, Model model) {
         User user = securityService.getCurrentUser();
         Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(page, SIZEPERPAGE), user.getId());
-        model.addAttribute("contacts", ((Page) contacts).getContent());
+        model.addAttribute("contacts", contacts.getContent());
+        model.addAttribute("contacts-pages", contacts.getTotalElements());
+        model.addAttribute("contacts-total", contacts.getTotalPages());
         return CONTACTS;
     }
 
