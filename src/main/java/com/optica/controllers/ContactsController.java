@@ -48,18 +48,16 @@ public class ContactsController {
         return CONTACTS;
     }
 
-    @GetMapping("/app/people/contacts/create")
-    public String createContact() {
-
-        return CONTACTS_CREATE;
-    }
-
     @PostMapping("/app/people/contacts/create")
-    public String createContact(@ModelAttribute Contacts contact, Model model) {
-
+    public String createContact(String contactName, String phoneNumber, Model model) {
+        Contacts contact = new Contacts();
+        User user = securityService.getCurrentUser();
+        contact.setUserId(user.getId());
+        contact.setName(contactName);
+        contact.setPhone(phoneNumber);
         contactsService.createContact(contact);
 
-        return CONTACTS_CREATE;
+        return "redirect:/people";
     }
 
 

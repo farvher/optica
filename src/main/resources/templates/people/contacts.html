@@ -12,9 +12,22 @@
         <li class="list-group-item" ><a href="" >Nuevo Contacto</a></li>
 
     </ul>
+</div>
 
+<div  th:fragment="newContact">
+    <h3>New Contact:</h3>
+        <form th:action="@{/app/people/contacts/create}" method="post">
+            <div class="form-group">
+                <input  placeholder="Contact Name:" type="text" name="contactName" id="contactName" maxlength="50"  class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <input placeholder="Phone number:" type="number" name="phoneNumber" id="phoneNumber" class="form-control" required maxlength="15"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-lg btn-primary" value="Save"/>
+            </div>
 
-
+        </form>
 </div>
 
 </body>

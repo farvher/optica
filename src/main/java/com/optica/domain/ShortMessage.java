@@ -23,7 +23,7 @@ public class ShortMessage {
 
     LocalDate creation;
 
-    @Length(min = 10 ,  max = 15)
+    @Length(min = 5 ,  max = 15)
     String toNumber;
 
     @Override

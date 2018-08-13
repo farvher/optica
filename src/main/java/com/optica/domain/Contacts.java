@@ -15,19 +15,12 @@ public class Contacts {
 
     private String name;
 
-    private String lastName;
-
     private String phone;
 
-    private String email;
 
     @Override
     public String toString() {
-        return "Contact{" +
-                "name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+        return name  + " # " + phone  ;
     }
 
     public Long getId() {
@@ -54,13 +47,7 @@ public class Contacts {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getPhone() {
         return phone;
@@ -70,11 +57,4 @@ public class Contacts {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

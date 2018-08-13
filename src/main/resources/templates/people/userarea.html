@@ -10,16 +10,13 @@
             <h3>Send Sms</h3>
             <form th:action="@{/app/sms/sendSms}" method="post">
                 <div class="form-group">
-                    <label > Phone number:</label>
-                    <input type="number" name="phoneNumber" id="phoneNumber" class="form-control" required/>
+                    <input  placeholder="Phone number:" type="number" name="phoneNumber" id="phoneNumber" maxlength="13" minlength="5" class="form-control" required/>
                 </div>
                 <div class="form-group">
-                    <label>Sms:</label>
-                    <input type="text" name="sms" id="sms" class="form-control" required maxlength="20"/>
+                    <input placeholder="Sms:" type="text" name="sms" id="sms" class="form-control" required maxlength="158"/>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-lg btn-primary" value="Send"/>
-
                 </div>
 
             </form>
