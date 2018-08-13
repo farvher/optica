@@ -18,39 +18,43 @@ import com.optica.services.login.SecurityService;
 @Controller
 public class PeopleController {
 
-	@Autowired
-	private CurriculumService curriculumService;
+    @Autowired
+    private CurriculumService curriculumService;
 
-	@Autowired
-	private SecurityService securityService;
+    @Autowired
+    private SecurityService securityService;
 
-	@Autowired
-	private ContactsController contactsController;
+    @Autowired
+    private ContactsController contactsController;
 
-	@GetMapping(MappingConstants.PEOPLE_PATH)
-	public String index(Model model) {
-		User user = securityService.getCurrentUser();
+    @Autowired
+    private SmsController smsController;
+
+    @GetMapping(MappingConstants.PEOPLE_PATH)
+    public String index(Model model) {
+        User user = securityService.getCurrentUser();
         contactsController.getContacts(model);
-		loadModel(model, user);
-		return "people";
-	}
+        smsController.getSmsList(model);
+        loadModel(model, user);
+        return "people";
+    }
 
-	@GetMapping("/people/curriculum/edit")
-	public String edit(Model model, @Valid CurriculumDto curriculumDto, BindingResult errors) {
-		User user = securityService.getCurrentUser();
-		loadModel(model, user);
-		return "people/edit";
-	}
+    @GetMapping("/people/curriculum/edit")
+    public String edit(Model model, @Valid CurriculumDto curriculumDto, BindingResult errors) {
+        User user = securityService.getCurrentUser();
+        loadModel(model, user);
+        return "people/edit";
+    }
 
-	@PostMapping("/people/curriculum/edit")
-	public static String edit(Model model, @Valid CurriculumDto curriculumDto) {
-		return "people/edit";
-	}
+    @PostMapping("/people/curriculum/edit")
+    public static String edit(Model model, @Valid CurriculumDto curriculumDto) {
+        return "people/edit";
+    }
 
-	private void loadModel(Model model, User user) {
-		model.addAttribute("user",user);
+    private void loadModel(Model model, User user) {
+        model.addAttribute("user", user);
 
 
-	}
+    }
 
 }

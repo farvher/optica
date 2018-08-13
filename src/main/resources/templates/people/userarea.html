@@ -6,18 +6,25 @@
 
 	<div th:fragment="userarea">
 
+        <div>
+            <h3>Send Sms</h3>
+            <form th:action="@{/app/sms/sendSms}" method="post">
+                <div class="form-group">
+                    <label > Phone number:</label>
+                    <input type="number" name="phoneNumber" id="phoneNumber" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label>Sms:</label>
+                    <input type="text" name="sms" id="sms" class="form-control" required maxlength="20"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-lg btn-primary" value="Send"/>
 
-		<div class="card" style="width: 18rem;">
-			<div class="card-body">
-				<h5 class="card-title" th:text="${user.username}">Card title</h5>
-				<h6 class="card-subtitle mb-2 text-muted" th:text="${user.Email}">Card
-					subtitle</h6>
-				<p class="card-text">Some quick example text to build on the
-					card title and make up the bulk of the card's content.</p>
-				<a href="#" class="card-link">Card link</a> <a href="#"
-					class="card-link">Another link</a>
-			</div>
-		</div>
+                </div>
+
+            </form>
+
+        </div>
 
 
 	</div>

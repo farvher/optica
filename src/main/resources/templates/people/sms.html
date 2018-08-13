@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+</head>
+
+<body>
+
+<div th:fragment="sms">
+    <h3>Sms list:</h3>
+    <ul class="list-group">
+
+        <li class="list-group-item" th:each="c : ${smsList}" th:text="${c}"></li>
+
+    </ul>
+
+
+</div>
+</body>
+</html>

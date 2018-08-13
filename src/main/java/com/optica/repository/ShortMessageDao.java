@@ -16,7 +16,7 @@ public interface ShortMessageDao extends JpaRepository<ShortMessage,Long> {
 
     Page<ShortMessage> findByUserIdAndMessageContains(Pageable pageable, Long userId, String message);
 
-    Page<ShortMessage> findByUserIdAndCreationBetweenAnd(Pageable pageable, Long userId, LocalDate start,LocalDate end);
+    Page<ShortMessage> findByUserIdAndCreationBetween(Pageable pageable, Long userId, LocalDate start,LocalDate end);
 
     ShortMessage findFirstByUserIdAndId(Long userId , Long id);
 }

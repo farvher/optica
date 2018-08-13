@@ -27,7 +27,7 @@ public class ShortMessageServiceImpl implements ShortMessageService {
 
     @Override
     public Page<ShortMessage> getMessages(Pageable pageable, Long userId, LocalDate start, LocalDate end) {
-        return shortMessageDao.findByUserIdAndCreationBetweenAnd(pageable, userId, start, end);
+        return shortMessageDao.findByUserIdAndCreationBetween(pageable, userId, start, end);
     }
 
     @Override
