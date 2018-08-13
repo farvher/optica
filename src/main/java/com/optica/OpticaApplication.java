@@ -16,6 +16,10 @@ public class OpticaApplication {
      * enviara mensaje a travez de un web service
      * limita la cantidad de mensajes por membresia
      * informacion de membresia comprada
+	 * el usuario se registra pero no se activara de inmediato solo enviara 3 msj
+	 * el administrador habilita al usuario
+	 *
+	 *
      *
 	 * */
 	public static void main(String[] args) {

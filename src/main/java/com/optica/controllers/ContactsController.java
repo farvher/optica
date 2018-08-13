@@ -5,20 +5,24 @@ import com.optica.domain.Contacts;
 import com.optica.entity.User;
 import com.optica.services.ContactsService;
 import com.optica.services.login.SecurityService;
+import com.optica.util.ReadLoadContacts;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 public class ContactsController {
+
+    private final org.slf4j.Logger logger = LoggerFactory.getLogger(ContactsController.class);
 
     private static final String CONTACTS = "contacts::contacts";
 
@@ -56,6 +60,22 @@ public class ContactsController {
         contact.setName(contactName);
         contact.setPhone(phoneNumber);
         contactsService.createContact(contact);
+
+        return "redirect:/people";
+    }
+
+    @PostMapping("/app/people/contacts/loadvcf")
+    public String loadContactVCard(Model model, @RequestParam("file") MultipartFile multipartFile) {
+        User user = securityService.getCurrentUser();
+        List<Contacts> contacts = null;
+        try {
+            contacts = ReadLoadContacts.readContactsFromVCard(multipartFile.getInputStream(), user.getId());
+            if(contacts!=null){
+                contactsService.importContacts(contacts,user.getId());
+            }
+        } catch (Exception ex) {
+            logger.error("Error importando contactos",ex);
+        }
 
         return "redirect:/people";
     }

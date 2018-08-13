@@ -8,7 +8,7 @@
 <h3>Contacts:</h3>
     <ul class="list-group list-group-flush">
 
-        <li class="list-group-item"  th:each="c : ${contacts}" th:text="${c}"></li>
+        <li class="list-group-item" th:attr="con-id=${c.id},con-no=${c.phone}" th:each="c : ${contacts}" th:text="${c}"></li>
 
         <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -37,6 +37,15 @@
             </div>
 
         </form>
+
+    <form th:action="@{/app/people/contacts/loadvcf}" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <input type="file" name="file" required="required" accept="vcf"/>
+            <input type="submit" value="Import"/>
+        </div>
+
+
+    </form>
 </div>
 
 </body>

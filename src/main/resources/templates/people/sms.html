@@ -8,7 +8,7 @@
     <h3>Sms list:</h3>
     <ul class="list-group list-group-flush">
 
-        <li class="list-group-item" th:each="c : ${smsList}" th:text="${c}"></li>
+        <li class="list-group-item"  th:attr="sms-id=${c.id},sms-no=${c.toNumber}"  th:each="c : ${smsList}" th:text="${c}"></li>
 
         <nav aria-label="Page navigation example">
             <ul class="pagination">
