@@ -24,7 +24,7 @@ public class ContactsController {
 
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(ContactsController.class);
 
-    private static final String CONTACTS = "contacts::contacts";
+    private static final String CONTACTS = "people/contacts::contacts";
 
     private static final String CONTACTS_CREATE = "contacts::create";
 
@@ -42,8 +42,12 @@ public class ContactsController {
         Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(0, SIZEPERPAGE), user.getId());
         contacts.getTotalElements();
         model.addAttribute("contacts", contacts.getContent());
-        model.addAttribute("pages", contacts.getTotalElements());
-        model.addAttribute("total", contacts.getTotalPages());
+        model.addAttribute("elements", contacts.getTotalElements());
+        model.addAttribute("pages", contacts.getTotalPages());
+        model.addAttribute("startPage",0);
+        int endPage = 7>= contacts.getTotalPages()?contacts.getTotalPages() : 7;
+        model.addAttribute("endPage",endPage);
+        model.addAttribute("page", 0);
         return CONTACTS;
     }
 
@@ -52,8 +56,13 @@ public class ContactsController {
         User user = securityService.getCurrentUser();
         Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(page, SIZEPERPAGE), user.getId());
         model.addAttribute("contacts", contacts.getContent());
-        model.addAttribute("pages", contacts.getTotalElements());
-        model.addAttribute("total", contacts.getTotalPages());
+        model.addAttribute("elements", contacts.getTotalElements());
+        model.addAttribute("pages", contacts.getTotalPages());
+        int startPage = page>=7? page-6 : 0;
+        int endPage = page+3>= contacts.getTotalPages()?contacts.getTotalPages() : page+3;
+        model.addAttribute("startPage",startPage);
+        model.addAttribute("endPage",endPage);
+        model.addAttribute("page", page);
         return CONTACTS;
     }
 

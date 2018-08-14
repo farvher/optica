@@ -5,12 +5,6 @@
 
 <body>
 
-<script >
-	$(document).ready(function () {
-		
-    })
-</script>
-
 	<div th:include="fragments/navbar :: navbar"></div>
 	<div class="container">
 
@@ -36,7 +30,7 @@
 
 			</div>
 			<div class="col-12 col-md-8">
-				<div th:include="people/contacts :: contacts"></div>
+				<div th:include="people/contacts :: contacts" id="contacts-fragment"></div>
 
 			</div>
 		</div>
@@ -55,5 +49,19 @@
 	</div>
 	<!-- /container -->
 	<div th:include="fragments/header :: footer-home"></div>
+
+
+	<script >
+//	$(document).ready(function(){
+        var contactsUrl = "/app/people/contacts/";
+        var smsUrl = "";
+        var contactsRequest = function (page){
+            $.get(contactsUrl+page,function(data){
+                $("#contacts-fragment").html(data);}
+                )
+        }
+
+//	})
+	</script>
 </body>
 </html>
