@@ -42,8 +42,8 @@ public class ContactsController {
         Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(0, SIZEPERPAGE), user.getId());
         contacts.getTotalElements();
         model.addAttribute("contacts", contacts.getContent());
-        model.addAttribute("contacts-pages", contacts.getTotalElements());
-        model.addAttribute("contacts-total", contacts.getTotalPages());
+        model.addAttribute("pages", contacts.getTotalElements());
+        model.addAttribute("total", contacts.getTotalPages());
         return CONTACTS;
     }
 
@@ -52,8 +52,8 @@ public class ContactsController {
         User user = securityService.getCurrentUser();
         Page<Contacts> contacts = contactsService.findAllContacts(PageRequest.of(page, SIZEPERPAGE), user.getId());
         model.addAttribute("contacts", contacts.getContent());
-        model.addAttribute("contacts-pages", contacts.getTotalElements());
-        model.addAttribute("contacts-total", contacts.getTotalPages());
+        model.addAttribute("pages", contacts.getTotalElements());
+        model.addAttribute("total", contacts.getTotalPages());
         return CONTACTS;
     }
 
