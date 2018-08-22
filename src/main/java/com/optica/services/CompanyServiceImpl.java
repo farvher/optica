@@ -11,17 +11,17 @@ import com.optica.repository.CompanyDao;
 @Service
 public class CompanyServiceImpl implements CompanyService {
 
-	@Autowired
-	private CompanyDao companyDao;
+    @Autowired
+    private CompanyDao companyDao;
 
-	@Override
-	public Company findCompany(Long id) {
-		return companyDao.findById(id).get();
-	}
+    @Override
+    public Company findCompany(Long id) {
+        return companyDao.findById(id).get();
+    }
 
-	@Override
-	public List<Company> findAllCompanies() {
-		return companyDao.findAll();
-	}
+    @Override
+    public List<Company> findAllCompanies() {
+        return companyDao.findAll();
+    }
 
 }

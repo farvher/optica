@@ -32,12 +32,12 @@ public class LoginController {
 	@Autowired
 	private RoleService roleService;
 
-	@RequestMapping(value = MappingConstants.REGISTRATION_PATH, method = RequestMethod.GET)
+	@RequestMapping(value = Routes.REGISTRATION_PATH, method = RequestMethod.GET)
 	public String registration(Model model, User user) {
 		return "registration";
 	}
 
-	@RequestMapping(value = MappingConstants.REGISTRATION_PATH, method = RequestMethod.POST)
+	@RequestMapping(value = Routes.REGISTRATION_PATH, method = RequestMethod.POST)
 	public String registration(@ModelAttribute("user") User userForm, BindingResult bindingResult, Model model,
 			HttpServletRequest request) {
 		userValidator.validate(userForm, bindingResult);
@@ -53,7 +53,7 @@ public class LoginController {
 		return "redirect:/";
 	}
 
-	@GetMapping(MappingConstants.LOGIN_PATH)
+	@GetMapping(Routes.LOGIN_PATH)
 	public String login(Model model) {
 
 		model.addAttribute("roles", roleService.findAll());

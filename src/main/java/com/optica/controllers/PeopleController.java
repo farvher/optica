@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.optica.domain.Curriculum;
 import com.optica.dto.CurriculumDto;
 import com.optica.entity.User;
 import com.optica.services.CurriculumService;
@@ -30,7 +29,7 @@ public class PeopleController {
     @Autowired
     private SmsController smsController;
 
-    @GetMapping(MappingConstants.PEOPLE_PATH)
+    @GetMapping(Routes.PEOPLE_HOME)
     public String index(Model model) {
         User user = securityService.getCurrentUser();
         contactsController.getContacts(model);
@@ -39,14 +38,14 @@ public class PeopleController {
         return "people";
     }
 
-    @GetMapping("/people/curriculum/edit")
+    @GetMapping("/app/people/curriculum/edit")
     public String edit(Model model, @Valid CurriculumDto curriculumDto, BindingResult errors) {
         User user = securityService.getCurrentUser();
         loadModel(model, user);
         return "people/edit";
     }
 
-    @PostMapping("/people/curriculum/edit")
+    @PostMapping("/app/people/curriculum/edit")
     public static String edit(Model model, @Valid CurriculumDto curriculumDto) {
         return "people/edit";
     }

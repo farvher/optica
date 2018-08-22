@@ -1,6 +1,6 @@
 package com.optica.controllers;
 
-import com.optica.domain.ShortMessage;
+import  com.optica.domain.ShortMessage;
 import com.optica.entity.User;
 import com.optica.services.ShortMessageService;
 import com.optica.services.login.SecurityService;

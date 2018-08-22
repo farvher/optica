@@ -1,5 +1,6 @@
 package com.optica;
 
+import com.optica.controllers.Routes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -74,7 +75,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			User loggedUser = userService.findByUsername(username);
 			((User)authentication.getPrincipal()).setId(loggedUser.getId());
 			((User)authentication.getPrincipal()).setEmail(loggedUser.getEmail());
-			response.sendRedirect("/people");
+			response.sendRedirect(Routes.PEOPLE_HOME);
 		};
 
 	}

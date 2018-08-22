@@ -17,11 +17,14 @@ public class CompanyController {
 	@Autowired
 	private CompanyService companyService;
 
-	@ResponseBody
-	@GetMapping("/company/all")
+	@GetMapping(Routes.COMPANY_HOME)
 	public List<Company> getCompanies() {
 
 		return companyService.findAllCompanies();
 	}
+
+
+
+
 
 }
