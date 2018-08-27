@@ -2,11 +2,14 @@ package com.optica.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.optica.services.search.SearchService;
 
 /**
  * @author farsan
@@ -14,15 +17,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 
+	@Autowired
+	private SearchService searchService;
 
     @GetMapping(Routes.INDEX_PATH)
     public String index(HttpServletRequest request, Model model) {
+   
 
         return "index";
     }
 
     @GetMapping(Routes.ABOUT_PATH)
     public String about(Model model) {
+    	searchService.indexSampleArticles();
         return "about";
     }
 
