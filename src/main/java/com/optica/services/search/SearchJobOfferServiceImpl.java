@@ -20,9 +20,9 @@ import io.searchbox.core.Search;
 
 @Service
 public class SearchJobOfferServiceImpl implements SearchJobOfferService {
-	
-	private static final String INDEX ="";
-	private static final String TYPE ="";
+
+	private static final String INDEX = "jobOffers";
+	private static final String TYPE = "jobOffer";
 
 	private final Logger logger = LoggerFactory.getLogger(SearchJobOfferServiceImpl.class);
 
@@ -37,10 +37,8 @@ public class SearchJobOfferServiceImpl implements SearchJobOfferService {
 		try {
 			SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
 			searchSourceBuilder.query(QueryBuilders.queryString(keyword));
-	
 
-			Search search = new Search.Builder(searchSourceBuilder.toString()).addIndex(INDEX).addType(TYPE)
-					.build();
+			Search search = new Search.Builder(searchSourceBuilder.toString()).addIndex(INDEX).addType(TYPE).build();
 
 			JestResult result = jestClient.execute(search);
 			return result.getSourceAsObjectList(JobOffer.class);

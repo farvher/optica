@@ -9,3 +9,4 @@ insert into contacts(id,user_id,name,phone) values(1000,123,'wendy mantilla','41
 insert into contacts(id,user_id,name,phone) values(2000,123,'issac mantilla','412312312');
 insert into contacts(id,user_id,name,phone) values(3000,123,'tatiana mantilla','412312312');
 
+

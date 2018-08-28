@@ -23,7 +23,7 @@ import com.optica.services.login.UserService;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	protected static final String[] ANY_MATCHER = { "/resources/**", "/", "/about", "/contact", "/blog", "/team",
-			"/registration", "/detail/**", "/search/**", "/h2-console**" };
+			"/registration", "/detail/**", "/search/**", "/h2-console/*" , "/h2-console/**"};
 
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -54,7 +54,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.and()
 		.logout()
 		.permitAll();
-
+		http.headers().frameOptions().disable();
 	}
 
 	@Autowired

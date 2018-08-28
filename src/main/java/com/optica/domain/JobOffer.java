@@ -6,11 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import io.searchbox.annotations.JestId;
+
 @Entity
 public class JobOffer {
 
 	@Id
 	@GeneratedValue
+	@JestId
 	private Long id;
 
 	private String title;
