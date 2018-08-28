@@ -5,10 +5,13 @@ import org.springframework.stereotype.Service;
 
 import com.optica.domain.JobOffer;
 import com.optica.repository.JobOfferDao;
+import com.optica.services.search.SearchService;
 
 @Service
 public class JobDetailServiceImpl implements JobDetailService {
 
+
+	
 	@Autowired
 	private JobOfferDao jobOfferDao;
 
