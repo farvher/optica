@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.optica.domain.JobOffer;
 import com.optica.repository.JobOfferDao;
+import com.optica.services.search.SearchJobOfferService;
 import com.optica.services.search.SearchService;
 
 /**
@@ -23,8 +24,12 @@ public class HomeController {
 
 	@Autowired
 	private SearchService searchService;
+	
 	@Autowired
-	private JobOfferDao offerDao ; 
+	private JobOfferDao offerDao ;
+	
+	@Autowired
+	private SearchJobOfferService searchJobService;
 
     @GetMapping(Routes.INDEX_PATH)
     public String index(HttpServletRequest request, Model model) {
@@ -52,8 +57,9 @@ public class HomeController {
     	j.setUnpublishDate(LocalDate.now());
     	j.setUpdateDate(LocalDate.now());
     	j.setVacancies(10);
-    	offerDao.save(j);
-    	
+    	//offerDao.save(j);
+    	//searchService.indexSampleArticles(j);
+    	model.addAttribute("jobs", searchJobService.findJobOffersByKeyword("*"));
     	
 
         return "index";

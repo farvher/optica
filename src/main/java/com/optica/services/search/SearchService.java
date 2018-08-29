@@ -29,22 +29,8 @@ public class SearchService {
     JestClient jestClient;
 
 
-    public void indexSampleArticles() {
+    public void indexSampleArticles(JobOffer jobOffer) {
 
-        JobOffer article1 = new JobOffer();
-        article1.setId(1L);
-        article1.setTitle("Robert Anthony Salvatore");
-        article1.setDescription("Homeland follows the story of Drizzt from around the time and circumstances of his birth and his upbringing amongst the drow (dark elves). " +
-                "The book takes the reader into Menzoberranzan, the drow home city. From here, the reader follows Drizzt on his quest to follow his principles in a land where such " +
-                "feelings are threatened by all his family including his mother Matron Malice. In an essence, the book introduces Drizzt Do'Urden," +
-                " one of Salvatore's more famous characters from the Icewind Dale Trilogy.");
-
-        JobOffer article2 = new JobOffer();
-        article2.setId(2L);
-        article2.setTitle("John Ronald Reuel Tolkien");
-        article2.setDescription("The Lord of the Rings is an epic high fantasy novel written by English philologist and University of Oxford professor J. R. R. Tolkien. " +
-                "The story began as a sequel to Tolkien's 1937 children's fantasy novel The Hobbit, but eventually developed into a much larger work. " +
-                "It was written in stages between 1937 and 1949, much of it during World War II.[1] It is the third best-selling novel ever written, with over 150 million copies sold");
 
         try {
             // Delete articles index if it is exists
@@ -69,8 +55,7 @@ public class SearchService {
              */
 
             Bulk bulk = new Bulk.Builder()
-                    .addAction(new Index.Builder(article1).index("articles").type("article").build())
-                    .addAction(new Index.Builder(article2).index("articles").type("article").build())
+                    .addAction(new Index.Builder(jobOffer).index("articles").type("article").build())
                     .build();
 
             result = jestClient.execute(bulk);

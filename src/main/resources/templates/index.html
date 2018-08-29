@@ -6,7 +6,7 @@
 <body>
 
 	<div th:include="fragments/navbar :: navbar"></div>
-	
+
 	<div class="container">
 		<div class="intro center-content">
 			<div class="row">
@@ -31,11 +31,16 @@
 			<!-- row -->
 
 		</div>
+
+		<div th:include="searcher :: searcher"></div>
 		
-		<div th:include="searcher :: searcher">
-			
-		</div>
-		
+		<div>
+				<ul class="list-group"> 
+					<li class="list-group-item" th:each="jo : ${jobs}"
+						th:text="| ${jo.title} ${jo.description}|"></li>
+				</ul>
+			</div>
+
 		<!-- intro -->
 
 	</div>
@@ -65,7 +70,7 @@
 						</div>
 					</div>
 				</div>
-			
+
 			</div>
 		</div>
 	</section>
