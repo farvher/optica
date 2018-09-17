@@ -1,5 +1,7 @@
 package com.optica.controllers;
 
+import java.time.LocalDate;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.optica.domain.app.TokenLogin;
 import com.optica.entity.User;
 import com.optica.services.login.RoleService;
 import com.optica.services.login.SecurityService;
@@ -49,6 +52,7 @@ public class LoginController {
 		userForm.setRoles(roleService.findRoleByName("USER"));
 		userService.save(userForm);
 		securityService.autologin(userForm.getUsername(), passConfirm, request);
+
 
 		return "redirect:/";
 	}

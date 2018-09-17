@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-
 @Entity
 public class TokenLogin {
 
@@ -17,6 +16,8 @@ public class TokenLogin {
 
 	String token;
 
+	String email;
+
 	LocalDate expirationDate;
 
 	LocalDate creationDate;
@@ -25,6 +26,18 @@ public class TokenLogin {
 
 	@Transient
 	Boolean validToken;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setValidToken(Boolean validToken) {
+		this.validToken = validToken;
+	}
 
 	public Long getId() {
 		return id;
@@ -54,7 +67,6 @@ public class TokenLogin {
 		return creationDate;
 	}
 
-
 	public Boolean getEnabled() {
 		return enabled;
 	}
@@ -70,6 +82,5 @@ public class TokenLogin {
 	public Boolean getValidToken() {
 		return expirationDate == null ? false : enabled && expirationDate.isBefore(LocalDate.now());
 	}
-
 
 }
