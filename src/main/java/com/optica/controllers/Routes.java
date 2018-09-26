@@ -42,11 +42,13 @@ public interface Routes {
 
     String BLOG_PATH = "/blog";
 
-
     String JOB_SEARCH_PATH = "/search/{keyword:.*}/{city:.*}";
 
     String JOB_DETAIL_PATH = "/detail/{title:.*}/{id:.*}";
-
-    String JOB_OFFER_NEW = "/job-offer/";
+    
+    /**
+     * Formularios privados
+     * */
+    String JOB_OFFER_NEW = APP_PATH + "/new-job-offer";
 
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header('Login - JobNext')">
+</head>
+
+<body>
+
+	<div th:include="fragments/navbar :: navbar"></div>
+	<div class="container">
+
+		<nav aria-label="breadcrumb ">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item active" aria-current="page">Home</li>
+			</ol>
+		</nav>
+
+		<div th:include="jobs/job-form :: job-form"></div>
+
+	</div>
+	<!-- /container -->
+	<div th:include="fragments/header :: footer-home"></div>
+
+
+</body>
+</html>

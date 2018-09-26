@@ -22,7 +22,7 @@ import com.optica.services.login.UserService;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	protected static final String[] ANY_MATCHER = { "/resources/**", "/", "/about", "/contact", "/blog", "/team",
+	protected static final String[] ANY_MATCHER = { "/resources/**", "/", "/about", "/contact", "/blog", "/team", "/redirect",
 			"/registration", "/detail/**", "/search/**", "/h2-console/*" , "/h2-console/**"};
 
 	@Autowired

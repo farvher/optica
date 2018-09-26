@@ -2,6 +2,8 @@ package com.optica.controllers;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +16,17 @@ import com.optica.entity.User;
 import com.optica.services.CurriculumService;
 import com.optica.services.login.SecurityService;
 
+
+/**
+ * Clase controladora para la gestion del curriculum 
+ * 
+ * @author fsanmiguel*/
 @Controller
 public class PeopleController {
 
+	private final Logger logger = LoggerFactory.getLogger(PeopleController.class);
+
+	
     @Autowired
     private CurriculumService curriculumService;
 

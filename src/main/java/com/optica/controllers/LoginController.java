@@ -1,9 +1,9 @@
 package com.optica.controllers;
 
-import java.time.LocalDate;
-
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,16 +13,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.optica.domain.app.TokenLogin;
 import com.optica.entity.User;
 import com.optica.services.login.RoleService;
 import com.optica.services.login.SecurityService;
 import com.optica.services.login.UserService;
 import com.optica.util.UserValidator;
 
+
+/**
+ * Clase controladora para el login de la aplicacion
+ * 
+ * @author fsanmiguel
+ * */
 @Controller
 public class LoginController {
 
+	private final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
+	
 	@Autowired
 	private UserService userService;
 
