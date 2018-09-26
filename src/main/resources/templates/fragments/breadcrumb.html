@@ -4,10 +4,16 @@
 
 <body>
 
-<div th:fragment="breadcrumb"> 
+	<div th:fragment="breadcrumb">
+
+		<nav th:if="${breadcrumb}!=null" aria-label="breadcrumb ">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item active" th:each="b : ${breadcrumb}"  th:text="${b}" aria-current="page">Home</li>
+			</ol>
+		</nav>
 
 
-</div>
+	</div>
 
 </body>
 </html>

@@ -14,17 +14,17 @@ public class ResultPageDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 
-	private List<JobOffer> jobOffers;
+	private List<JobOfferDto> jobOffers;
 
 	private Integer total;
 
 	private Map<String, String[]> filters;
 
-	public List<JobOffer> getJobOffers() {
+	public List<JobOfferDto> getJobOffers() {
 		return jobOffers;
 	}
 
-	public void setJobOffers(List<JobOffer> jobOffers) {
+	public void setJobOffers(List<JobOfferDto> jobOffers) {
 		this.jobOffers = jobOffers;
 	}
 
