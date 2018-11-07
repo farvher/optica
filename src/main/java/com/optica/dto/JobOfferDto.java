@@ -2,6 +2,7 @@ package com.optica.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -52,7 +53,7 @@ public class JobOfferDto implements Serializable {
 	private LocalDate updateDate;
 
 	@NotNull
-	private Long cityId;
+	private Long cityId; //table city
 
 	
 	private Long salary;
@@ -62,13 +63,13 @@ public class JobOfferDto implements Serializable {
 	private Long minSalary;
 
 	@NotNull
-	private Long scheduleId;
+	private Long scheduleId;//table schedule
 
 	@NotNull
-	private Long contactsId;
+	private Long contactsId; //table contacts
 
 	@NotNull
-	private Long trainingId;
+	private Long trainingId;//table training
 
 	private Boolean confidential;
 
@@ -77,5 +78,9 @@ public class JobOfferDto implements Serializable {
 	private Long length;
 
 	private Boolean highLight;
+	
+	private Boolean remote;
+	
+	private List<TechnologyDTO> techs;
 
 }

@@ -59,6 +59,10 @@ public class JobOffer {
 	private Long length;
 
 	private Boolean highLight;
+	
+	private Boolean remote;
+	
+	
 
 	public Long getId() {
 		return id;

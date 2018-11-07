@@ -47,6 +47,8 @@ public class HomeController {
 
 	@GetMapping(Routes.INDEX_PATH)
 	public String index(HttpServletRequest request, Model model) {
+		
+    	model.addAttribute("jobs", searchService.searchByQueryString("DESARROLLO"));
 
 		return "index";
 	}
