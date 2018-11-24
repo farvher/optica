@@ -29,6 +29,10 @@ public interface Routes {
      * Public routes
      */
     String INDEX_PATH = "/";
+    
+    String INDEX_PATH_LITERAL = "index.html";
+    
+    String HOME_PATH = "/home";
 
     String LOGIN_PATH = "/login";
 
