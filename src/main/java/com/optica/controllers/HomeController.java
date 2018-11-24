@@ -47,7 +47,7 @@ public class HomeController {
 	private SearchJobOfferService searchJobService;
 	
 	
-	@GetMapping({Routes.INDEX_PATH,Routes.INDEX_PATH_LITERAL})
+	@GetMapping({Routes.INDEX_PATH})
 	public String home () {
 		return "octopus/index";
 	}
