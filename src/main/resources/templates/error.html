@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-   <head th:include="/fragments/header :: header('Error page')">
+   <head th:include="fragments/header :: header('Error page')">
 
 </head>
     <body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
