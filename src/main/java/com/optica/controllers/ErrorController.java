@@ -7,13 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.thymeleaf.exceptions.TemplateInputException;
 
 @ControllerAdvice
 public class ErrorController {
 
 	private final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
-	@ExceptionHandler(Throwable.class)
+	@ExceptionHandler(Exception.class)	
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public String exception(final Throwable throwable, final Model model) {
 		logger.error("Exception during execution of SpringSecurity application", throwable);
