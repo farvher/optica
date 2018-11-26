@@ -49,7 +49,7 @@ public class HomeController {
 	
 	@GetMapping({Routes.INDEX_PATH})
 	public String home () {
-		return "octopus/index";
+		return "index";
 	}
 	
 	@GetMapping("/{page:[a-zA-Z1-9-]+.html}")
