@@ -1,31 +1,31 @@
 <!doctype html>
 <html class="fixed">
-<head th:include="/fragments/header :: header('Home - JobNext')">
+<head th:include="fragments/header :: header('Home - JobNext')">
 
 </head>
 <body>
 	<section class="body">
 
-		<header class="header" th:include="/fragments/navbar :: navbar">
+		<header class="header" th:include="fragments/navbar :: navbar">
 		</header>
 
 
 		<div class="inner-wrapper">
 
 			<aside id="sidebar-left" class="sidebar-left"
-				th:include="/fragments/sidebar :: sidebar-left"></aside>
+				th:include="fragments/sidebar :: sidebar-left"></aside>
 
 
 			<section role="main" class="content-body"
-				th:include="/fragments/content :: content-body"></section>
+				th:include="fragments/content :: content-body"></section>
 
 		</div>
 
 		<aside id="sidebar-right" class="sidebar-right"
-			th:include="/fragments/sidebar :: sidebar-right"></aside>
+			th:include="fragments/sidebar :: sidebar-right"></aside>
 
 	</section>
 
-	<div th:include="/fragments/vendor :: vendor"></div>
+	<div th:include="fragments/vendor :: vendor"></div>
 </body>
 </html>
